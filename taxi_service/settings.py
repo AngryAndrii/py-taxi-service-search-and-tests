@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     "debug_toolbar",
     "crispy_forms",
     "taxi",
-    "bootstrap4",
     "crispy_bootstrap4",
 ]
 
