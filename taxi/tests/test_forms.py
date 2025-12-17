@@ -20,8 +20,6 @@ class FormsTests(TestCase):
         self.assertEqual(form.cleaned_data["license_number"], "ABC12345")
         self.assertEqual(form.cleaned_data["username"], "firstuser")
 
-
-
     def test_car_search_form_is_valid(self):
         form_data = {
             "model": "test",
