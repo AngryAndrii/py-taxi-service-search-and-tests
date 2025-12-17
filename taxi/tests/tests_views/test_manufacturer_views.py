@@ -7,8 +7,6 @@ from taxi.models import Manufacturer
 
 MANUFACTURER_LIST_URL = reverse("taxi:manufacturer-list")
 MANUFACTURER_CREATE_URL = reverse("taxi:manufacturer-create")
-MANUFACTURER_UPDATE_URL = "taxi:manufacturer-update"
-MANUFACTURER_DELETE_URL = "taxi:manufacturer-delete"
 
 
 class PublicManufacturerTest(TestCase):
@@ -28,13 +26,13 @@ class PublicManufacturerTest(TestCase):
         self.assertNotEqual(res.status_code, 200)
 
     def test_login_required_update(self):
-        res = self.client.get(MANUFACTURER_UPDATE_URL,
-                              args=[self.manufacturer.id])
+        url = reverse("taxi:manufacturer-update", args=[self.manufacturer.id])
+        res = self.client.get(url)
         self.assertNotEqual(res.status_code, 200)
 
     def test_login_required_delete(self):
-        res = self.client.get(MANUFACTURER_DELETE_URL,
-                              args=[self.manufacturer.id])
+        url = reverse("taxi:manufacturer-delete", args=[self.manufacturer.id])
+        res = self.client.get(url)
         self.assertNotEqual(res.status_code, 200)
 
 

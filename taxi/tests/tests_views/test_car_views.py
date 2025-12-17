@@ -6,8 +6,6 @@ from taxi.models import Car, Manufacturer
 
 CAR_LIST_URL = reverse("taxi:car-list")
 CAR_CREATE_URL = reverse("taxi:car-create")
-CAR_UPDATE_URL = "taxi:car-update"
-CAR_DELETE_URL = "taxi:car-delete"
 
 
 class PublicCarTest(TestCase):
@@ -37,13 +35,13 @@ class PublicCarTest(TestCase):
         self.assertNotEqual(res.status_code, 200)
 
     def test_login_required_update(self):
-        res = self.client.get(CAR_UPDATE_URL,
-                              args=[self.car.id])
+        url = reverse("taxi:car-update", args=[self.car.id])
+        res = self.client.get(url)
         self.assertNotEqual(res.status_code, 200)
 
     def test_login_required_delete(self):
-        res = self.client.get(CAR_DELETE_URL,
-                              args=[self.car.id])
+        url = reverse("taxi:car-delete", args=[self.car.id])
+        res = self.client.get(url)
         self.assertNotEqual(res.status_code, 200)
 
 

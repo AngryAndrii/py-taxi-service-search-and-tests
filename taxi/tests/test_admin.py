@@ -13,9 +13,9 @@ class AdminSiteTests(TestCase):
 
         self.client.force_login(self.adminUser)
 
-        username = "test",
-        first_name = "test",
-        last_name = "test",
+        username = "test"
+        first_name = "test"
+        last_name = "test"
         license_number = "RFE12345"
         password = "abdhf1234"
 
